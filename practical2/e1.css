@@ -1,0 +1,40 @@
+/* Create a style sheet that styles the <h1>, <h2>, <h3> and <em> tags. 
+Each tag should have the following properties defined: color (note the American spelling, without a ‘u’), letter-spacing, text-decoration, font-size, font-family (e.g. Times) and font-weight.  */
+
+h1{
+    color:Orange;
+    letter-spacing: normal;
+    text-decoration:bold;
+    font-size:50px;
+    font-family:Arial;
+    font-weight: bold; 
+}
+
+h2{
+    color:Blue;
+    letter-spacing: normal;
+    text-decoration:underline;
+    font-size:40px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold; 
+}
+
+h3{
+    color:Yellow;
+    background-color: black;
+    letter-spacing: normal;
+    text-decoration:none;
+    font-size:30px;
+    font-family:Arial;
+    font-weight: bold; 
+}
+
+em{
+    color:Pink;
+    letter-spacing: normal;
+    text-decoration:none;
+    font-size:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold; 
+}
+

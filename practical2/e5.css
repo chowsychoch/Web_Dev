@@ -1,0 +1,29 @@
+table,tr,th,td{
+    border-collapse: collapse;
+    border: 1px solid brown;
+    text-align: left;   
+    width:400px;
+    padding:4px
+}
+
+.special{
+    text-align: right;
+}
+
+.alternative{
+    background-color: lightgrey
+}
+
+.header{
+    background-color: brown;
+    color:white
+}
+
+p{
+    color:brown;
+    
+}
+.container{
+    text-align: center;
+    position: relative;
+}

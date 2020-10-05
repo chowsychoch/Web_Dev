@@ -1,0 +1,31 @@
+.book-title{
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+ }
+
+.author{
+    text-align: center;
+    color:orange
+}
+
+.publisher{
+    letter-spacing: thick;
+    text-align: center;
+    font-family:Arial;
+    font-weight: bold; 
+}
+
+.summary{
+    font-family:'Times New Roman', Times, serif;
+    text-align: left;
+}
+
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse
+}
+
+.num{
+    padding: 10px;
+}
