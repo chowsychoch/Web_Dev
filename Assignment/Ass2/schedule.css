@@ -1,0 +1,30 @@
+#container{
+ margin:10px;
+}
+
+.schedule-picker{
+    background-color: burlywood;
+}
+
+select#Sunday{
+    display: none;
+}
+select#Saturday{
+    display: none;
+}
+select#Monday{
+    display: none;
+}
+select#Tuesday{
+    display: none;
+}
+select#Wednesday{
+    display: none;
+}
+select#Thursday{
+    display: none;
+}
+
+.paper{
+    display: block;
+}

@@ -1,0 +1,25 @@
+#about-container{
+    margin:5%
+}
+
+#course {
+    border-collapse: collapse;
+    width: 100%;
+  }
+    
+  
+#course td, #course th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#course tr:nth-child(even){
+    background-color: #f2f2f2;}
+    
+#course th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#A06A4F;
+    color: white;
+  }

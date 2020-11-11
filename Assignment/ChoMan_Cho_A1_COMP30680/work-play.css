@@ -1,0 +1,61 @@
+.card{
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+    border:10px;
+    width: 25%;
+    height: auto;
+    padding:16px;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    margin:2%;
+    vertical-align: top;
+    box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+    perspective: 1000px
+}
+.card:hover{
+    transform: rotateX(10deg) rotateY(0deg);
+}
+
+.skill-container{
+    text-align: center;
+    padding:10%
+}
+
+.circular--landscape {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+  
+.circular--landscape .aussie {
+    width: 150%;
+    height: auto;
+}
+.circular--landscape .camping {
+    width: 180%;
+    height: auto;
+    margin-left: -70px;
+}
+.circular--landscape .coffee {
+    width: 140%;
+    height: auto;
+    margin-left: -30px;
+}
+.harrypotter{
+    width: 110%;
+    height: auto;
+    margin-left: -20px;
+}
+
+.cat{
+    width: 110%;
+    height: auto;
+}
+
+.tonkatsu{
+    width: 180%;
+    height: auto;
+    margin-left: -100px;
+}

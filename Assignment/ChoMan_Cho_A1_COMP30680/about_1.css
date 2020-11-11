@@ -1,0 +1,182 @@
+body, p{
+    background: #E7EFF4;
+}
+   /* https://www.webfx.com/blog/web-design/circular-images-css/ */
+  .about-container{
+      padding:5% 5% 5% 5%
+      
+  }
+   .circular--landscape {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .circular--landscape img {
+    width: 110%;
+    height: auto;
+    margin-left: -8px;
+    margin-top:  -140px;
+    
+  }
+  
+.text{
+    display: inline-block;
+    vertical-align: top;
+    text-align: justify;
+    font-family: Helvetica;
+    font-size: 30px;
+    width:70%;
+    height:auto;
+    margin:10px;
+    font-family: courier,arial,helvetica;
+    line-height: 42px
+    
+    
+    
+}
+.timeline-area{
+    margin:90px auto;
+    width:360px;
+    border-left:2px solid ;
+    padding: 0 20px 0 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+.education{
+    display:block
+}
+.box{
+    background-color: white ;
+    padding: 10px 25px;
+    /* font-size:16px; */
+    line-height: 1.7;
+    position: relative;
+    height: 150px;
+    display: inline-block;
+    margin:2%;
+    width:100%;
+}
+
+.box:before{
+    content: '';
+    display:block;
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    background-color: #000;
+    border:3px solid #ddd;
+    position: absolute;
+    top:10px;
+    left:-50px;
+}
+
+.box:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color:transparent white  transparent transparent;
+    border-width:8px;
+    position: absolute;
+    left:-17px;
+    top:10px;
+}
+
+h2{
+    margin:0;
+    
+    font-family:helvetica;
+}
+
+h3{
+    margin:0;
+    font-family:poppins;
+}
+
+h4{
+    margin:0;
+    font-family:poppins;
+}
+
+/* css skill set */
+.skill-container{
+    display: inline-block;
+    vertical-align: top;
+    width:100%;
+    margin: 0 auto;
+    height:auto;
+    vertical-align: top;
+   
+} 
+
+@keyframes load{
+    from {
+      width: 0%
+    }
+  }
+  @-webkit-keyframes load{
+    from {
+      width: 0%
+    }
+  }
+  @-moz-keyframes load{
+    from {
+      width: 0%
+    }
+  }
+  @-o-keyframes load{
+    from {
+      width: 0%
+    }
+} 
+.bar{
+    background-color: #EEE;
+    padding: 2px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  }
+  .bar::before{
+    content:  attr(data-skill);
+    background-color: #f3b0ff;
+    display: inline-block;
+    padding: 5px 0 5px 10px;
+    border-radius: inherit;
+    animation: load 2s 0s;
+    -webkit-animation: load 2s 0s;
+    -moz-animation: load 2s 0s;
+    -o-animation: load 2s 0s;
+  }
+  
+  .bar.cloud::before{
+    background-color: #ffcc33;
+  }
+  .bar.back::before{
+    background-color: #a6cfe3;
+  }
+  .bar.test::before{
+    background-color: #66D171;
+  }
+  
+  .bar.front::before{
+    width: calc(80% - 10px);
+  }
+
+  .bar.basic::before{
+    width: calc(40% - 10px);
+  }
+  .bar.advanced::before{
+    width: calc(80% - 10px);
+  }
+  .bar.expert::before{
+    width: calc(100% - 10px);
+  }
+  /* Reference */
+  /* https://www.tutorialspoint.com/how-to-create-a-skill-bar-with-css */
