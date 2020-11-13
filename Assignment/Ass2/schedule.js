@@ -189,7 +189,8 @@ function readUserResult(res, arr) {
                         // title, time, location, room type 
                         result_slot += `<div class="filterDiv ${session.type}"> 
                         <div>${session.title}</div>
-                        <button name="${session.title} ">More info</button>
+                        <button name="${session.sessionId}" onclick="readSubmission('${session.sessionId}')">More info</button>
+                        <div class="${session.sessionId}"></div>
                         <div>${session.room}</div>
                         <div>${session.time}</div>
                         <div>${session.type}</div>
@@ -281,8 +282,66 @@ function filterSelection(x) {
     }
 
 }
-// give all the div string
-//
+
+//read submission 
 
 
+function readSubmission(subInput){
+    // load input and function name to loadJson Func
+    loadJson(readResult,subInput)
+
+}
+
+		// function ready(){
+		// 	let removeBtns = document.querySelectorAll('.remove-btn')
+		// 	// console.log(removeBtns);
+		// 	for (let i=0; i<removeBtns.length; i++){
+		// 		let btn = removeBtns[i]
+		// 		btn.addEventListener('click', removeSkuItem)
+		// 	}
+
+        // let wrapper = document.querySelectorAll(".sub-result")
+
+        // for (let i in wrapper){
+        //     let btn  = wrapper[i]
+        //     btn.addEventListener('click',readSubmission('${session.sessionId}'))
+        // }
+    
+function readResult(res,subInput){
+
+    let wrapper = document.querySelector("."+CSS.escape(subInput))
+    console.log(wrapper)
+        //     for (let i in wrapper){
+        //     let btn  = wrapper[i]
+        //     btn.addEventListener('click', readSubmission()
+        // }
+    let result = ''
+    console.log(res)
+    console.log(subInput)
+    for (let i in res) {
+        slots = res[i].slots
+        slots = Object.values(slots)
+        // console.log(slots)
+        for (let slot of slots) {
+
+            for (let session of slot.sessions) {
+                if (session.sessionId == subInput){
+                    console.log(session.submissions)
+                    for (let i in session.submissions){
+                        session.submissions[i].doiUrl
+                        session.submissions[i].title
+                        result+= `
+                        <div>${session.submissions[i].title}</div>
+                        <a href="${session.submissions[i].doiUrl}"  target="_blank">link</a>
+                        `
+
+                    }
+                    console.log(session.submissions[0].doiUrl)
+                    wrapper.innerHTML = result
+                    
+                }
+            }
+        }
+    }
+}
 
