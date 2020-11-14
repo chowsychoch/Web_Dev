@@ -1,9 +1,79 @@
-#container{
- margin:10px;
+body{
+    background-color:#EBF3F3;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
-.schedule-picker{
-    background-color: burlywood;
+.title {
+    text-align: center;
+}
+
+.btn{
+    background-color:transparent;
+    font-size: 20px;
+    border: none;
+    padding: 12px;
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 2px 2px 0 0;
+}
+
+#container{
+ margin:20px;
+ display: inline-block;
+ position: relative;
+ margin-left: auto;
+ margin-right: auto;
+ width: 100%;
+}
+
+#schedule-picker{
+    width: 35%;
+    position: relative;
+    top: 20%;
+    /* left: 50%; */
+    /* margin: auto;
+    width: 80%; */
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px
+}
+
+#date{
+    /* margin:20px; */
+    background-color: #EBF3F3;
+    color: black;
+    padding: 12px;
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 2px 2px 0 0;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+
+}
+
+.date{
+    /* margin:20px; */
+    background-color: #EBF3F3;
+    color: black;
+    padding: 12px;
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 2px 2px 0 0;
+    background-color: #f8f8f8;
+    /* border-radius: 5%; */
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+}
+option {
+    padding: 30px;
 }
 
 select#Sunday{
@@ -27,4 +97,49 @@ select#Thursday{
 
 .paper{
     display: block;
+}
+
+#UserResult{
+    position: relative;
+    margin:10px;
+
+}
+
+.result{
+    padding:10px
+}
+
+.session-title{
+    font-weight: bold;
+    width:75%
+}
+
+.room{
+    display: inline-block;
+}
+
+.time{
+    display: inline-block;
+}
+
+.type{
+    display: inline-block;
+}
+
+.session-btn{
+    background-color:transparent;
+    font-size: 15px;
+    border-radius: 2px 2px 2px 2px;
+    margin-top: 5px ;
+    margin-bottom: 5px ;
+}
+
+.sessionId{
+    margin-top: 5px ;
+    margin-bottom: 5px ;
+    padding:5px
+}
+
+.sub-title{
+
 }

@@ -39,8 +39,7 @@ function readJsonFile(res) {
         slots = res[i].slots
         console.log(Object.values(slots))
         slot = Object.values(slots)
-        timeSlot += `<select id="${res[i].day}" name="${res[i].day}"><option value="">Selectssss</option>`
-        console.log('chowsy')
+        timeSlot += `<select id="${res[i].day}" class="date" name="${res[i].day}"><option value="">Selectssss</option>`
         for (let key of slot) {
             console.log(key.time)
             timeSlot += `<option key="${res[i].day}" value="${key.time}">${key.time}</option>`
@@ -49,11 +48,11 @@ function readJsonFile(res) {
     }
     console.log(shown)
     console.log(timeSlot)
-    console.log(document.getElementsByClassName("schedule-picker"))
-    document.getElementsByClassName("schedule-picker")[0].innerHTML = shown + `</select>` + day + timeSlot + `
+    console.log(document.getElementById("schedule-picker"))
+    document.getElementById("schedule-picker").innerHTML = shown + `</select>` + timeSlot + `
     
-    <input type="submit" value="Submit the form"/>
-    `
+    <input class="btn" type="submit" value="Submit"/>` + day
+    
 }
 
 //Click to show the timeslot of that date 
@@ -118,25 +117,24 @@ formElem.addEventListener('submit', (e) => {
 
 formElem.addEventListener('formdata', (e) => {
     console.log('formdata fired');
-
     // Get the form data from the event object
     let data = e.formData;
-    // console.log(data)
-    // console.log(data.keys())
+    console.log(data.values)
     let arr = []
     for (let value of data.values()) {
-
         if (value != "") {
             console.log('resultsssss', value);
             arr.push(value)
-            // bug wait to be fixed
-            if (arr.length > 2) {
-                alert('You might have enter two or more timeslots. Please unselect the timeslot ')
-            }
+            console.log(arr)
         }
     }
-    console.log(arr)
-    // arr created above pass as para to loadJson i.e. make sure loadJson has accepted para too
+    if (arr.length == 0){
+        alert("Please select a day.")
+    }
+    else if (arr.length > 2 ){
+        alert ('You might have enter two or more timeslots. Please unselect the timeslots. hints: go back to previous date to check :))')
+    }
+    // // arr created above pass as para to loadJson i.e. make sure loadJson has accepted para too
     loadJson(readUserResult, arr)
 });
 
@@ -156,7 +154,7 @@ function readUserResult(res, arr) {
             let userDate = res[i].date
             console.log('hehehehhe', userDate)
             // day selected 
-            day += `<div class="day">${res[i].day}</div>`
+            day += `<div class="day">${res[i].date}</div>`
 
             //get the date and return to specific result 
             slots = res[i].slots
@@ -172,12 +170,19 @@ function readUserResult(res, arr) {
                     for (let session of slot.sessions) {
                         //print out sessions 
                         // title, time, location, room type 
-                        result_slot += `<div>${session.title}<div>
-                                <div>${session.time}<div>`
+                        result_slot += `<div class="filterDiv ${session.type} result"> 
+                        <div class="session-title">${session.title}</div>
+                        <button class="session-btn" name="${session.sessionId}" onclick="readSubmission('${session.sessionId}')">More info</button>
+                        <div class="${session.sessionId} sessionId"></div>
+                        <div class="room"><img src="./venue.png" alt="room" />${session.room}</div>
+                        <div class="time"><img src="./time.png" alt="time" />${session.time}</div>
+                        <div class="type"><img src="./info.png" alt="info" />${session.type}</div>
+                        </div>
+                        `
                         // <div>${session.type}<div>
                         console.log(session.title)
                     }
-                    wrapper.innerHTML = result_slot
+                    // wrapper.innerHTML = result_slot
                     ///if no input for timeslot arr == 1 
                 } else if (arr.length == 1) {
                     //check input timeslot 
@@ -187,21 +192,21 @@ function readUserResult(res, arr) {
                     for (let session of slot.sessions) {
                         //print out sessions 
                         // title, time, location, room type 
-                        result_slot += `<div class="filterDiv ${session.type}"> 
-                        <div>${session.title}</div>
-                        <button name="${session.sessionId}" onclick="readSubmission('${session.sessionId}')">More info</button>
-                        <div class="${session.sessionId}"></div>
-                        <div>${session.room}</div>
-                        <div>${session.time}</div>
-                        <div>${session.type}</div>
+                        result_slot += `<div class="filterDiv ${session.type} result"> 
+                        <div class="session-title">${session.title}</div>
+                        <button class="session-btn" name="${session.sessionId}" onclick="readSubmission('${session.sessionId}')">More info</button>
+                        <div class="${session.sessionId} sessionId"></div>
+                        <div class="room"><img src="./venue.png" alt="room" />${session.room}</div>
+                        <div class="time"><img src="./time.png" alt="time" />${session.time}</div>
+                        <div class="type"><img src="./info.png" alt="info" />${session.type}</div>
                         </div>
                         `
                         console.log(session.title)
                     }
-                    wrapper.innerHTML = result_slot
+                    // wrapper.innerHTML = result_slot
 
                 }
-
+                wrapper.innerHTML = day + result_slot
 
                 //set same name allow only one radio btn to be selected
                 btn = ` <input type="radio" id="paper" name="btn" value="paper" onclick="filterSelection('paper')">
@@ -218,17 +223,6 @@ function readUserResult(res, arr) {
     wrapper.innerHTML += btn
 }
 
-// function filterSelection() {
-//     let selecteds = document.getElementsByClassName("filterDiv")
-//     console.log(selecteds)
-//     for (let i of selecteds) {
-//         if (i.style.display != 'none') {
-//             i.style.display = "none"
-//             console.log('heheheh im heere')
-//         }
-//         else (i.style.display = "block")
-//     }
-// }
 
 function filterSelection(x) {
     //show paper only 
@@ -292,20 +286,6 @@ function readSubmission(subInput){
 
 }
 
-		// function ready(){
-		// 	let removeBtns = document.querySelectorAll('.remove-btn')
-		// 	// console.log(removeBtns);
-		// 	for (let i=0; i<removeBtns.length; i++){
-		// 		let btn = removeBtns[i]
-		// 		btn.addEventListener('click', removeSkuItem)
-		// 	}
-
-        // let wrapper = document.querySelectorAll(".sub-result")
-
-        // for (let i in wrapper){
-        //     let btn  = wrapper[i]
-        //     btn.addEventListener('click',readSubmission('${session.sessionId}'))
-        // }
     
 function readResult(res,subInput){
 
@@ -327,18 +307,25 @@ function readResult(res,subInput){
             for (let session of slot.sessions) {
                 if (session.sessionId == subInput){
                     console.log(session.submissions)
-                    for (let i in session.submissions){
-                        session.submissions[i].doiUrl
+                    if (session.submissions == 0){
+                        console.log('her eis undefined')
+                        result += `<div><img src="./broken.png" alt="empty"/>Nothing to show. </div>`
+                        wrapper.innerHTML = result
+                    }
+                    else{for (let i in session.submissions){
+                        console.log(session.submissions[i].doiUrl)
+
                         session.submissions[i].title
-                        result+= `
-                        <div>${session.submissions[i].title}</div>
-                        <a href="${session.submissions[i].doiUrl}"  target="_blank">link</a>
+                        result+= `<div> <img src="./submission.png" alt="submission"/>
+                        <div class="sub-title"> ${session.submissions[i].title}</div>
+                        <a href="${session.submissions[i].doiUrl}"  target="_blank">link</a></div>
+
                         `
 
                     }
-                    console.log(session.submissions[0].doiUrl)
+                    // console.log(session.submissions[0].doiUrl)
                     wrapper.innerHTML = result
-                    
+                }
                 }
             }
         }
