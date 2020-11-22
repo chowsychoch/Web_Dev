@@ -6,6 +6,7 @@ body{
 
 .title {
     text-align: center;
+    font-size: x-large;
 }
 
 .btn{
@@ -142,4 +143,8 @@ select#Thursday{
 
 .sub-title{
 
+}
+
+.myClass{
+    display: none;
 }
